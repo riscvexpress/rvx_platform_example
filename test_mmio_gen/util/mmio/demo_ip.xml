@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<rvx>
+  <def_ip>
+    <name>demo_ip</name>
+    <submodule>
+      <name>ctrl</name>
+      <reg type="simple" bitwidth="8" default_value="5">config</reg>
+      <reg type="read" bitwidth="1" readyin="True">wait_done</reg>
+      <reg type="write_cmd">start</reg>
+      <reg type="read_cmd">tick</reg>
+      <reg type="onehot_cmd" bitwidth="4">kick</reg>
+      <reg type="general" bitwidth="32" array_size="2">data</reg>
+      <reg type="read_reg" bitwidth="64">wide_in</reg>
+      <reg type="write_reg" bitwidth="48">wide_out</reg>
+      <reg type="wfifo" bitwidth="32" fifo_depth="4">cmdq</reg>
+      <reg type="rfifo" bitwidth="32" fifo_depth="4">result</reg>
+      <reg type="fake">hole</reg>
+      <reg type="read">ver,cap</reg>
+      <reg type="general">mode</reg>
+    </submodule>
+    <regvalue>
+      <name>ctrl.mode</name>
+      <assign>IDLE,RUN,STOP</assign>
+    </regvalue>
+    <regvalue assign_type="onehot">
+      <name>demo_kick</name>
+      <assign>A,B,C,D</assign>
+    </regvalue>
+  </def_ip>
+</rvx>

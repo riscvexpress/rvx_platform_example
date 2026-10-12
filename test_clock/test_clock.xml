@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<rvx>
+	<platform>
+		<name>test_clock</name>
+		<status>described</status>
+		<spec>
+			<define>
+				<name>sram_size</name>
+				<value>128kB</value>
+			</define>
+    </spec>
+
+		<ip_instance>
+			<name>i_main_core</name>
+			<library_name>rvc_orca</library_name>
+    </ip_instance>
+
+    <clock_info>
+			<define>
+				<name>clk_core</name>
+				<value type="equal">clk_100M</value>
+			</define>
+			<define>
+				<name>clk_noc</name>
+				<value type="equal">clk_200M</value>
+			</define>
+			<define>
+				<name>clk_100M</name>
+				<value type="dec">100000000</value>
+      </define>
+      <define>
+				<name>clk_200M</name>
+				<value type="dec">200000000</value>
+			</define>
+		</clock_info>
+
+	</platform>
+</rvx>

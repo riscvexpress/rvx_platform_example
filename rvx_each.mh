@@ -1,0 +1,41 @@
+verify_build:
+	@for x in ${wildcard ${CURDIR}/* }; do \
+		if [ -d $$x ]; then \
+			cd $$x && make clean syn; \
+			cd $$x/app && make test_build || exit 1; \
+		fi; \
+	done
+
+verify_rtl:
+	@for x in ${wildcard ${CURDIR}/* }; do \
+		if [ -d $$x ]; then \
+			cd $$x && make test; \
+			test -e $$x/sim_rtl/compile_correctly || exit 1; \
+		fi; \
+	done
+
+verify: verify_build verify_rtl
+
+EXPORT_DIR=${RVX_SHARED_HOME}/rvx_platform_example
+VERSION_INFO_FILE=${EXPORT_DIR}/version_info.xml
+
+export: export_platform
+
+export_platform:
+	cd ${EXPORT_DIR} && rm -rf *
+	cd ${EXPORT_DIR} && cp -rf ${CURDIR}/* .
+	cd ${EXPORT_DIR} && cp -rf ${CURDIR}/.gitignore .
+	cd ${EXPORT_DIR} && make clean
+	cd ${EXPORT_DIR} && git checkout rvx_each.mh
+	make gen_git_info
+
+export_vta:
+	cd ${EXPORT_DIR}/test_vta/user && rm -rf ./vta
+	cd ${EXPORT_DIR}/test_vta/user && cp -r ${RVX_ETRI_HOME}/hwlib_special/vta .
+	cd ${EXPORT_DIR}/test_vta/user/vta && rm -rf ./env
+	cd ${EXPORT_DIR}/test_vta/user/vta && rm -rf ./imported
+	cd ${EXPORT_DIR}/test_vta/user && git checkout ./vta/env
+
+gen_git_info:
+	${PYTHON3_CMD} ${RVX_UTIL_HOME}/manage_version_info.py -git ${RVX_ETRI_HOME} -o ${VERSION_INFO_FILE}
+	cat ${VERSION_INFO_FILE}

@@ -1,16 +1,21 @@
 *~
 *.swp
 *.swo
-*.bak
-*.sh
-*.zip
-.vscode
 __pycache__
 
-.rvx_*
+rvx_setup.sh
 rvx_*.log
-.login_info
+rvx_*.cfg
 rvx_python_config.mh
-python3.bat
+.rvx_*
 
-build/
+*rvx_include*
+*rvx_src*
+
+platform_bug
+rvx_platform_example
+
+*/arch
+*/sim_rtl
+*/imp_*
+

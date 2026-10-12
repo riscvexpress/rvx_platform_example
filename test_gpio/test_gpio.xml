@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<rvx>
+	<platform>
+		<name>test_gpio</name>
+		<status>described</status>
+		<spec>
+			<define>
+				<name>sram_size</name>
+				<value>64kB</value>
+			</define>
+			<define>
+				<name>include_timer</name>
+				<value type="bool">True</value>
+			</define>
+			<define>
+				<name>num_led_checker</name>
+				<value>1</value>
+			</define>
+			<define>
+				<name>num_switch_slide_readymade</name>
+				<value>1</value>
+			</define>
+			<define>
+				<name>include_plic</name>
+				<value type="bool">True</value>
+      </define>
+      <define>
+				<name>include_gpio_pinmux</name>
+				<value type="bool">False</value>
+			</define>
+		</spec>
+
+		<ip_instance>
+			<name>i_main_core</name>
+			<library_name>rvc_orca</library_name>
+		</ip_instance>
+
+		<gpio>
+			<name>switch_slide1</name>
+			<width>2</width>
+		</gpio>
+	</platform>
+</rvx>

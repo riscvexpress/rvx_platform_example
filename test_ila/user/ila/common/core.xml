@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<rvx>
+	<ila>
+		<clock>i_rtl.clk_system</clock>
+		<signal>
+			<name>rstnn_seqeunce</name>
+			<width>5</width>
+			<value>rstnn_seqeunce</value>
+		</signal>
+	</ila>
+</rvx>

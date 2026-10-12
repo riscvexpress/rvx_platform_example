@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<rvx>
+	<platform>
+		<name>test_profiling</name>
+		<status>described</status>
+		<spec>
+			<define>
+				<name>sram_size</name>
+				<value>128kB</value>
+			</define>
+			<define>
+				<name>include_timer</name>
+				<value type="bool">True</value>
+			</define>
+			<define>
+				<name>num_led_checker</name>
+				<value>1</value>
+			</define>
+    </spec>
+
+		<ip_instance>
+			<name>i_main_core</name>
+			<library_name>rvc_orca</library_name>
+    </ip_instance>
+
+		<sw_define>
+      <use_profiling type="bool">True</use_profiling>
+      <silent_for_profiling type="bool">True</silent_for_profiling>
+    </sw_define>
+
+	</platform>
+</rvx>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<rvx>
+	<platform>
+		<name>test_parser</name>
+		<status>described</status>
+		<spec>
+      <define>
+        <name>sram_size</name>
+        <value>64kB</value>
+      </define>
+      <define>
+        <name>include_slow_dram</name>
+        <value type="bool">True</value>
+      </define>
+      <define>
+        <name>num_led_checker</name>
+        <value>1</value>
+      </define>
+    </spec>
+
+		<ip_instance>
+			<name>i_main_core</name>
+			<library_name>rvc_orca</library_name>
+		</ip_instance>
+
+    <sw_define>
+      <use_profiling type="bool">False</use_profiling>
+    </sw_define>
+
+    <sim_define>
+      <simulate_spi_flash type='bool'>False</simulate_spi_flash>
+    </sim_define>
+
+	</platform>
+</rvx>
