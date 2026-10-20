@@ -16,17 +16,29 @@
 				<name>num_led_checker</name>
 				<value>1</value>
 			</define>
-    </spec>
+			<define>
+				<name>num_lock_user</name>
+				<value>2</value>
+			</define>
+			<define>
+				<name>num_barrier_user</name>
+				<value>2</value>
+			</define>
+			<define>
+				<name>num_core_user</name>
+				<value>2</value>
+			</define>
+		</spec>
 
 		<ip_instance>
 			<name>i_main_core</name>
-			<library_name>rvc_orca</library_name>
-    </ip_instance>
+			<library_name>rvc_orca_plus</library_name>
+		</ip_instance>
 
 		<sw_define>
-      <use_profiling type="bool">True</use_profiling>
-      <silent_for_profiling type="bool">True</silent_for_profiling>
-    </sw_define>
+			<use_profiling type="bool">True</use_profiling>
+			<silent_for_profiling type="bool">True</silent_for_profiling>
+		</sw_define>
 
 	</platform>
 </rvx>
