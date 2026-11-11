@@ -1,0 +1,10 @@
+#IMAGE_LIST=./target/fruit.jpg
+
+IMAGE_WIDTH=96
+IMAGE_HEIGHT=64
+
+all: convert install
+
+install:
+	@cp *.h ../../user/api
+	@cp *.c ../../user/api
